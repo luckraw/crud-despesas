@@ -10,7 +10,7 @@ public class ConnectionFactory {
 
     public static Connection getConnection() {
         try {
-            return DriverManager.getConnection("URLDB");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/despesas");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
