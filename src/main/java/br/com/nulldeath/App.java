@@ -1,25 +1,22 @@
 package br.com.nulldeath;
 
 import br.com.nulldeath.dao.DespesaDAO;
-import br.com.nulldeath.model.Categoria;
 import br.com.nulldeath.model.Despesa;
 
-import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 public class App {
 
     public static void main(String[] args) {
 
         DespesaDAO dao = new DespesaDAO();
-        Despesa despesa = new Despesa();
-        Despesa despesa1 = new Despesa();
 
-        despesa.setDescricao("Compra do mes");
-        despesa.setCategoria(Categoria.ALIMENTACAO);
-        despesa.setValor(1.000);
-        despesa.setData(LocalDate.of(2023, 07, 22));
-
-        dao.salvar(despesa);
-
+        Optional<Despesa> despesaOptional = dao.buscarPorId(2L);
+        despesaOptional.ifPresent(despesa -> {
+            System.out.println("ID: " + despesa.getId());
+            System.out.println("Descricao: " + despesa.getDescricao());
+            System.out.println("Valor: " + despesa.getValor());
+        });
     }
 }

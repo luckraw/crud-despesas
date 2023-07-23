@@ -1,5 +1,6 @@
 package br.com.nulldeath.dao;
 
+import br.com.nulldeath.model.Categoria;
 import br.com.nulldeath.model.Despesa;
 
 import java.util.List;
@@ -12,6 +13,6 @@ public interface IDespesaDAO {
     void deletar(Long id);
     List<Despesa> buscarTodos();
     Optional<Despesa> buscarPorId(Long id);
-    List<Despesa> buscarPorCategoria(Despesa despesa);
+    List<Despesa> buscarPorCategoria(Categoria categoria);
 
 }
