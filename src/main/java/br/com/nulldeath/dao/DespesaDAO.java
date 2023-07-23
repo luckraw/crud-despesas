@@ -1,15 +1,34 @@
 package br.com.nulldeath.dao;
 
+import br.com.nulldeath.infra.ConnectionFactory;
 import br.com.nulldeath.model.Despesa;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public class DespesaDAO implements IDespesaDAO{
+public class DespesaDAO implements IDespesaDAO {
 
     @Override
     public Despesa salvar(Despesa despesa) {
-        return null;
+
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            String sql = "INSERT INTO despesas (descricao, valor, data, categoria) VALUES (?, ?, ?, ?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, despesa.getDescricao());
+            preparedStatement.setDouble(2, despesa.getValor());
+            preparedStatement.setDate(3, java.sql.Date.valueOf(despesa.getData()));
+            preparedStatement.setString(4, despesa.getCategoria().toString());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return despesa;
     }
 
     @Override
