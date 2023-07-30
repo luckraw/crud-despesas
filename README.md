@@ -1,6 +1,6 @@
 # Gerenciamento de Despesas
 
-O DespesaDAO é um projeto de gerenciamento de despesas desenvolvido em Java que permite realizar operações básicas de persistência (criação, atualização, exclusão e busca) relacionadas a despesas e categorias em um banco de dados. Neste projeto, é utilizado um banco de dados relacional para armazenar informações sobre as despesas, como descrição, valor, data e categoria.
+Este é um projeto de gerenciamento de despesas desenvolvido em Java que permite realizar operações básicas de persistência (criação, atualização, exclusão e busca) relacionadas a despesas e categorias em um banco de dados. Neste projeto, é utilizado um banco de dados relacional para armazenar informações sobre as despesas, como descrição, valor, data e categoria.
 
 ### Tecnologias Utilizadas
 
